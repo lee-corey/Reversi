@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Reversi' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Reversi
+  platform :ios,  '9.0'
+  pod 'Firebase/Core', '~>5.3.0'
+
+  target 'ReversiTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'Reversi-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Reversi-tvOS
+
+  target 'Reversi-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

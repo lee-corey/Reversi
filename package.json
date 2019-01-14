@@ -1,0 +1,49 @@
+{
+  "name": "Reversi",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "ios": "open ios/Reversi.xcworkspace"
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "apsl-react-native-button": "^3.1.1",
+    "expo": "^31.0.5",
+    "firebase": "^5.7.3",
+    "immutable": "^3.7.5",
+    "lodash": "^4.7.11",
+    "material-ui": "^0.17.4",
+    "object-assign": "^2.1.1",
+    "prop-types": "^15.5.8",
+    "react": "16.6.3",
+    "react-dom": "^15.5.4",
+    "react-native": "0.57.8",
+    "react-native-firebase": "^5.2.0",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-native-progress": "^3.5.0",
+    "react-navigation": "^3.0.9",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.14.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-expo": "^5.0.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "jest": "23.6.0",
+    "jest-expo": "^31.0.0",
+    "metro-react-native-babel-preset": "0.51.1",
+    "prettier": "^1.1.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
