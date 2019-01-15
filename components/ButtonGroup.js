@@ -23,13 +23,49 @@ export default class ButtonGroup extends Component {
     this.hasMoves = props.boardHistory.size > 1
     return (
       <View style={styles}>
-        <Button  id="pass" action={props.actions.switchPlayer} removeHint = {props.actions.removeHint} checkAction={props.actions.checkOverlayHint} disabled={this.gameOver}>
+        <Button  id="pass" 
+          action={props.actions.switchPlayer}
+          removeHint = {props.actions.removeHint}
+          checkAction={props.actions.checkOverlayHint}
+          disabled={this.gameOver}
+          GameMode={props.GameMode}
+          LobbyName={props.LobbyName}
+          playerName={props.playerName}
+          currentPlayer={props.currentPlayer}
+          onlineMode={props.onlineMode}
+          clickCount={props.clickCount}
+          actions={props.actions}
+        >
           Pass
         </Button>
-        <Button  id="undo" action={props.actions.undo} removeHint = {props.actions.removeHint} checkAction={props.actions.checkOverlayHint} disabled={!this.hasMoves || this.gameOver}>
+        <Button  id="undo" 
+          action={props.actions.undo}
+          removeHint = {props.actions.removeHint} 
+          checkAction={props.actions.checkOverlayHint} 
+          disabled={!this.hasMoves || this.gameOver}
+          GameMode={props.GameMode}
+          LobbyName={props.LobbyName}
+          playerName={props.playerName}
+          currentPlayer={props.currentPlayer}
+          onlineMode={props.onlineMode}
+          clickCount={props.clickCount}
+          actions={props.actions}
+        >
           Undo
         </Button>
-        <Button  id="reset" action={props.actions.reset}  removeHint = {props.actions.removeHint} checkAction={props.actions.checkOverlayHint} disabled={!this.hasMoves}>
+        <Button  id="reset" 
+          action={props.actions.reset}  
+          removeHint = {props.actions.removeHint} 
+          checkAction={props.actions.checkOverlayHint} 
+          disabled={!this.hasMoves}
+          GameMode={props.GameMode}
+          LobbyName={props.LobbyName}
+          playerName={props.playerName}
+          currentPlayer={props.currentPlayer}
+          onlineMode={props.onlineMode}
+          clickCount={props.clickCount}
+          actions={props.actions}
+        >
           Reset
         </Button>
       </View>

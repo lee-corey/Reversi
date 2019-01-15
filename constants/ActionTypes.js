@@ -10,3 +10,4 @@ export const SET_GAME_MODE = 'SET_GAME_MODE'
 export const SET_ONLINE_MODE = "SET_ONLINE_MODE"
 export const SET_ONLINE_STATUS = "SET_ONLINE_STATUS"
 export const SET_TEMP = "SET_TEMP"
+export const SET_CLICK_COUNT = "SET_CLICK_COUNT"

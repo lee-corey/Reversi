@@ -36,13 +36,15 @@ function newGame() {
       reset: reset,
       setUser: setUser,
       changeLobbyName: changeLobbyName,
-      setGameMode: setGameMode
+      setGameMode: setGameMode,
+      setClickCount: setClickCount
     },
     temp: '',
     GameMode: 1, // 1: offline 2: online
     onlineMode: 1, // 1: create Lobby 2: join to Lobby
     onlineStatus: 1, // 1: create 2: joined 3: start
-    LobbyName: ''
+    LobbyName: '',
+    clickCount: 1
   }
 }
 
@@ -64,13 +66,15 @@ function resetGame(state) {
       undo: undo,
       reset: reset,
       setUser: setUser,
-      changeLobbyName: changeLobbyName
+      changeLobbyName: changeLobbyName,
+      setClickCount: setClickCount
     },
-    temp: '',
+    temp: state.temp,
     GameMode: state.GameMode, // 1: offline 2: online
     onlineMode: state.onlineMode, // 1: create Lobby 2: join to Lobby
     onlineStatus: state.onlineStatus, // 1: create 2: joined 3: start
-    LobbyName: state.LobbyName
+    LobbyName: state.LobbyName,
+    clickCount: 1
   }
 }
 
@@ -186,6 +190,13 @@ function setOnlineStatus(state, action){
   }
 }
 
+function setClickCount(state, action){
+  return {
+    ...state,
+    clickCount: action.clickCount
+  }
+}
+
 export default function game(state = newGame(), action) {
   const handlers = {
     [actions.SWITCH_PLAYER]: switchPlayer,
@@ -199,7 +210,8 @@ export default function game(state = newGame(), action) {
     [actions.SET_GAME_MODE]: setGameMode,
     [actions.SET_ONLINE_MODE]: setOnlineMode,
     [actions.SET_ONLINE_STATUS]: setOnlineStatus,
-    [actions.SET_TEMP]: setTemp
+    [actions.SET_TEMP]: setTemp,
+    [actions.SET_CLICK_COUNT]: setClickCount
   }
 
   return handlers[action.type] ? handlers[action.type](state, action) : state

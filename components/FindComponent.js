@@ -57,7 +57,7 @@ let createNewLobby = (user, pProps) => {
     pProps.screenProps.actions.changeLobbyName(lobbyName)
     pProps.screenProps.actions.setOnlineMode(1)
     pProps.screenProps.actions.setOnlineStatus(1)
-
+    pProps.screenProps.actions.checkOverlayHint()
     if (calledOnce === false) {
       childAddedAction(lobbyName,pProps)
       calledOnce = true;

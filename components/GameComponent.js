@@ -44,11 +44,18 @@ class GameComponent extends Component {
             LobbyName={this.props.game.LobbyName}
             GameMode={this.props.game.GameMode}
             playerName={this.props.game.temp}
+            clickCount={this.props.game.clickCount}
           />
           <ButtonGroup
             actions={this.props.screenProps.actions}
             score={this.props.game.score}
             boardHistory={this.props.game.boardHistory}
+            GameMode={this.props.game.GameMode}
+            LobbyName={this.props.game.LobbyName}
+            playerName={this.props.game.temp}
+            currentPlayer={this.props.game.currentPlayer}
+            onlineMode={this.props.game.onlineMode}
+            clickCount={this.props.game.clickCount}
           />
         </View>
       )

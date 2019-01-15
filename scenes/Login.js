@@ -87,7 +87,6 @@ class Login extends Component{
               return
         }
         this.props.actions.reset()
-        this.props.actions.checkOverlayHint()
         this.props.actions.setUser("","")
         this.props.actions.setTemp(this.state.firstVar)
         this.props.actions.setGameMode(2)

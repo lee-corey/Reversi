@@ -19,6 +19,7 @@ const Row = props => (
         LobbyName={props.LobbyName}
         GameMode={props.GameMode}
         playerName={props.playerName}
+        clickCount={props.clickCount}
         key={c}
       />
     ))}

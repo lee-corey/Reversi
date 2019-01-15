@@ -37,6 +37,13 @@ export function setOnlineStatus(onlineStatus){
     onlineStatus
   }
 }
+export function setClickCount(clickCount){
+  return {
+    type: actions.SET_CLICK_COUNT,
+    clickCount
+  }
+}
+
 export function switchPlayer() {
   return {
     type: actions.SWITCH_PLAYER
