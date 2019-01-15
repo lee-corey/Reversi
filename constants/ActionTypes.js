@@ -6,3 +6,7 @@ export const UNDO = 'UNDO'
 export const RESET = 'RESET'
 export const SETUSER = 'SETUSER'
 export const CHANGE_LOBBY_NAME = 'CHANGE_LOBBY_NAME'
+export const SET_GAME_MODE = 'SET_GAME_MODE'
+export const SET_ONLINE_MODE = "SET_ONLINE_MODE"
+export const SET_ONLINE_STATUS = "SET_ONLINE_STATUS"
+export const SET_TEMP = "SET_TEMP"

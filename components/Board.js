@@ -17,6 +17,9 @@ const Board = props => (
           board={props.board}
           actions={props.actions}
           playerHint={props.playerHint}
+          LobbyName={props.LobbyName}
+          GameMode={props.GameMode}
+          playerName={props.playerName}
           key={r}
         />
       ))}

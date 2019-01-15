@@ -41,6 +41,9 @@ class GameComponent extends Component {
             actions={this.props.screenProps.actions}
             board={this.props.game.board}
             playerHint={this.props.game.playerHint}
+            LobbyName={this.props.game.LobbyName}
+            GameMode={this.props.game.GameMode}
+            playerName={this.props.game.temp}
           />
           <ButtonGroup
             actions={this.props.screenProps.actions}

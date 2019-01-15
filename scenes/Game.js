@@ -32,7 +32,7 @@ export default class Game extends Component{
         <ImageBackground style={Styles.background} source={{uri:Background}}>
           <GameComponent screenProps={this.paramProps}>
           </GameComponent>
-          </ImageBackground>
+        </ImageBackground>
       );
     }
   }

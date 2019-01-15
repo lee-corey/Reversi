@@ -2,16 +2,7 @@ import Player from '../lib/Player'
 import * as Board from '../lib/Board'
 import isEndOfGame from '../lib/isEndOfGame'
 import { Stack, Map } from 'immutable'
-import {
-  SWITCH_PLAYER,
-  MAKE_MOVE,
-  CHECK_OVERLAY_HINT,
-  REMOVE_HINT,
-  UNDO,
-  RESET,
-  SETUSER,
-  CHANGE_LOBBY_NAME
-} from '../constants/ActionTypes'
+import * as actions from '../constants/ActionTypes'
 
 function switchPlayer(state) {
 
@@ -44,10 +35,42 @@ function newGame() {
       undo: undo,
       reset: reset,
       setUser: setUser,
+      changeLobbyName: changeLobbyName,
+      setGameMode: setGameMode
+    },
+    temp: '',
+    GameMode: 1, // 1: offline 2: online
+    onlineMode: 1, // 1: create Lobby 2: join to Lobby
+    onlineStatus: 1, // 1: create 2: joined 3: start
+    LobbyName: ''
+  }
+}
+
+function resetGame(state) {
+  return {
+    currentPlayer: Player.One,
+    board: Board.newGameBoard,
+    boardHistory: Stack().push(Board.newGameBoard),
+    playerHint: Map(),
+    first: state.first,
+    second: state.second,
+    score: {
+      player1: 2,
+      player2: 2
+    },
+    actions: {
+      switchPlayer: switchPlayer,
+      makeMove: makeMove,
+      undo: undo,
+      reset: reset,
+      setUser: setUser,
       changeLobbyName: changeLobbyName
     },
-    GameMode: 1, // 1: offline 2: online
-    LobbyName: ''
+    temp: '',
+    GameMode: state.GameMode, // 1: offline 2: online
+    onlineMode: state.onlineMode, // 1: create Lobby 2: join to Lobby
+    onlineStatus: state.onlineStatus, // 1: create 2: joined 3: start
+    LobbyName: state.LobbyName
   }
 }
 
@@ -115,8 +138,8 @@ function undo(state) {
   }
 }
 
-function reset() {
-  return newGame()
+function reset(state) {
+  return resetGame (state)
 }
 
 function setUser(state, action){
@@ -135,16 +158,48 @@ function changeLobbyName(state, action){
   }
 }
 
+function setGameMode(state, action){
+  return {
+    ...state,
+    GameMode: action.GameMode
+  }
+}
+
+function setOnlineMode(state, action){
+  return {
+    ...state,
+    onlineMode: action.onlineMode
+  }
+}
+
+function setTemp(state, action){
+  return {
+    ...state,
+    temp: action.temp
+  }
+}
+
+function setOnlineStatus(state, action){
+  return {
+    ...state,
+    onlineStatus: action.onlineStatus
+  }
+}
+
 export default function game(state = newGame(), action) {
   const handlers = {
-    [SWITCH_PLAYER]: switchPlayer,
-    [MAKE_MOVE]: makeMove,
-    [CHECK_OVERLAY_HINT]: checkOverlayHint,
-    [REMOVE_HINT]: removeHint,
-    [UNDO]: undo,
-    [RESET]: reset,
-    [SETUSER]: setUser,
-    [CHANGE_LOBBY_NAME]: changeLobbyName
+    [actions.SWITCH_PLAYER]: switchPlayer,
+    [actions.MAKE_MOVE]: makeMove,
+    [actions.CHECK_OVERLAY_HINT]: checkOverlayHint,
+    [actions.REMOVE_HINT]: removeHint,
+    [actions.UNDO]: undo,
+    [actions.RESET]: reset,
+    [actions.SETUSER]: setUser,
+    [actions.CHANGE_LOBBY_NAME]: changeLobbyName,
+    [actions.SET_GAME_MODE]: setGameMode,
+    [actions.SET_ONLINE_MODE]: setOnlineMode,
+    [actions.SET_ONLINE_STATUS]: setOnlineStatus,
+    [actions.SET_TEMP]: setTemp
   }
 
   return handlers[action.type] ? handlers[action.type](state, action) : state

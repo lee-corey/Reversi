@@ -16,6 +16,9 @@ const Row = props => (
         owner={Board.getStatus(props.board, props.row, c)}
         playerHint={props.playerHint}
         actions={props.actions}
+        LobbyName={props.LobbyName}
+        GameMode={props.GameMode}
+        playerName={props.playerName}
         key={c}
       />
     ))}

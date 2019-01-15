@@ -11,8 +11,25 @@ import Button from 'apsl-react-native-button'
 import BackArray from '../lib/Back'
 import { Stack, Map, List } from 'immutable'
 import PropTypes from 'prop-types'
+import * as firebase from 'firebase';
 const { width, height } = Dimensions.get("window");
 var Background = ""
+
+var config = {
+    apiKey: "AIzaSyDGhfT9SaIE-HkhmVh7EPiGX3yYv1aKERA",
+    authDomain: "reversi-6e2f1.firebaseapp.com",
+    databaseURL: "https://reversi-6e2f1.firebaseio.com",
+    projectId: "reversi-6e2f1",
+    storageBucket: "reversi-6e2f1.appspot.com",
+    messagingSenderId: "983595005400"
+  };
+  
+firebase.initializeApp(config);
+
+if (!firebase.apps.length) {
+    firebase.initializeApp({});
+}
+
 class Login extends Component{
     static navigationOptions = {
         title: 'Login',
@@ -27,14 +44,9 @@ class Login extends Component{
         }
         this.generateBack()
     }
-   /* async componentWillMount(){
-        this.generateBack()
-    }*/
     generateBack(){
         const rand = Math.floor(Math.random() * 10);
         Background = BackArray[(rand - 1)]
-       // await Asset.fromModule(Background).downloadAsync();
-        //this.setState({appIsReady: true});
     }
     static propTypes = {
         boardHistory: PropTypes.instanceOf(Stack).isRequired,
@@ -42,8 +54,6 @@ class Login extends Component{
         board: PropTypes.instanceOf(List).isRequired,
         currentPlayer: PropTypes.number.isRequired,
         actions: PropTypes.object.isRequired,
-      //  first: PropTypes.string.isRequired,
-       // second: PropTypes.string.isRequired
       }
 
     login() {
@@ -77,7 +87,10 @@ class Login extends Component{
               return
         }
         this.props.actions.reset()
-        this.props.actions.setUser(this.state.firstVar,"Player 2")
+        this.props.actions.checkOverlayHint()
+        this.props.actions.setUser("","")
+        this.props.actions.setTemp(this.state.firstVar)
+        this.props.actions.setGameMode(2)
         this.props.navigation.navigate('Find',{prop:this.props});
     }
 
