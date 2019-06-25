@@ -14,15 +14,23 @@ import { createStore, combineReducers } from 'redux';
 import Login from './scenes/Login'
 import Game from './scenes/Game'
 import Find from './scenes/Find'
+import Loading from './scenes/Loading'
+import SignUp from './scenes/SignUp'
+import Logging from './scenes/Logging'
+import Main from './scenes/Main'
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
 const AppNavigator = createStackNavigator({
   Login: {screen:Login, params: {name: 'Login'}},
   Game: {screen:Game, params: {name: 'Game'}},
-  Find: {screen:Find, params: {name: 'Find'}}
+  Find: {screen:Find, params: {name: 'Find'}},
+  Loading: {screen:Login, params: {name: 'Loading'}},
+  SignUp: {screen:Login, params: {name: 'SignUp'}},
+  Logging: {screen:Login, params: {name: 'Logging'}},
+  Main: {screen:Login, params: {name: 'Main'}}
 },
 {
-  initialRouteName: 'Login'
+  initialRouteName: 'Loading'
 });
 
 const AppContainer = createAppContainer(AppNavigator);

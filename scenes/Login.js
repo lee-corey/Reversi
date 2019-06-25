@@ -15,7 +15,15 @@ import * as firebase from 'firebase';
 const { width, height } = Dimensions.get("window");
 var Background = ""
 
-
+var config = {
+    apiKey: "AIzaSyDGhfT9SaIE-HkhmVh7EPiGX3yYv1aKERA",
+    authDomain: "reversi-6e2f1.firebaseapp.com",
+    databaseURL: "https://reversi-6e2f1.firebaseio.com",
+    projectId: "reversi-6e2f1",
+    storageBucket: "reversi-6e2f1.appspot.com",
+    messagingSenderId: "983595005400"
+  };
+  
 firebase.initializeApp(config);
 
 if (!firebase.apps.length) {

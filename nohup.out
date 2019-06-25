@@ -1,0 +1,2 @@
+2019-01-15 00:12:14.659 Skype Helper[7597:64674] Couldn't set selectedTextBackgroundColor from default ()
+2019-01-15 08:17:22.707 Skype[7591:64567] *** WARNING: Textured window <AtomNSWindow: 0x7feb29f7c3a0> is getting an implicitly transparent titlebar. This will break when linking against newer SDKs. Use NSWindow's -titlebarAppearsTransparent=YES instead.
