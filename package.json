@@ -13,7 +13,7 @@
     "expo": "^31.0.5",
     "firebase": "^5.7.3",
     "immutable": "^3.7.5",
-    "lodash": "^4.7.11",
+    "lodash": "^4.17.19",
     "material-ui": "^0.17.4",
     "object-assign": "^2.1.1",
     "prop-types": "^15.5.8",
